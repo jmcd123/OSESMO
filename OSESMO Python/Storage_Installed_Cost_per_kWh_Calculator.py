@@ -10,6 +10,9 @@ def Storage_Installed_Cost_per_kWh_Calculator(Customer_Class_Input=None, Storage
     # but was reported in the 2016 version (Version 2.0) of the report, PDF pg. 22 (numbered 18 in the report).
     # (https://www.lazard.com/media/438042/lazard-levelized-cost-of-storage-v20.pdf)
 
+    #Updated numbers for C&I LI batteries using version 5.0 of Lazard, page 6 or pdf page 10: 
+    # (https://www.lazard.com/media/451087/lazards-levelized-cost-of-storage-version-50-vf.pdf)
+
     if Customer_Class_Input == "Residential":
 
         if Storage_Type_Input == "Lithium-Ion Battery": 
@@ -20,7 +23,7 @@ def Storage_Installed_Cost_per_kWh_Calculator(Customer_Class_Input=None, Storage
 
     elif Customer_Class_Input == "Commercial and Industrial":
         if Storage_Type_Input == "Lithium-Ion Battery": 
-            Storage_Installed_Cost_per_kWh = (643 + 720) / 2
+            Storage_Installed_Cost_per_kWh = (377 + 831) / 2
 
         elif Storage_Type_Input == "Flow Battery":
             Storage_Installed_Cost_per_kWh = (902 + 1102) / 2

@@ -20,7 +20,7 @@ Input_Output_Data_Directory_Location = '/Users/Jake/BOOTCAMP/OSESMO/Sample Input
 
 # Show/Export Plots and Data Toggles
 
-Show_Plots = 1  # 0 == Don't show plots, 1 == show plots
+Show_Plots = 0  # 0 == Don't show plots, 1 == show plots
 
 Export_Plots = 1  # 0 = Don't export plots, 1 = export plots
 
@@ -200,6 +200,7 @@ Solar_Installed_Cost_per_kW = Solar_Installed_Cost_per_kW_Calculator(Customer_Cl
 # Storage Installed Cost per kWh
 # Used values from Lazard's Levelized Cost of Storage report (2017), pg. 19
 # https://www.lazard.com/media/450338/lazard-levelized-cost-of-storage-version-30.pdf
+# Updated C&I cost figures with 2019 lazard report (see calculator py file)
 
 from Storage_Installed_Cost_per_kWh_Calculator import Storage_Installed_Cost_per_kWh_Calculator
 Storage_Installed_Cost_per_kWh = Storage_Installed_Cost_per_kWh_Calculator(Customer_Class_Input, Storage_Type_Input)
