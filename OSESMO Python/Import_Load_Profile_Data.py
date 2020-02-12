@@ -22,6 +22,20 @@ def Import_Load_Profile_Data(Input_Output_Data_Directory_Location=None, OSESMO_G
             Load_Profile_Data = np.genfromtxt(
                 'Load Profile Data/Green Button Data collected by WattTime 2017/15-Minute Data/Vector Format/Vector_Residential_Site1_2017_Berkeley.csv', delimiter=',')
 
+#Jake work on import load data
+    elif Load_Profile_Name_Input == "ENERNOC Bank Financial Services":
+    
+        Load_Profile_Master_Index = "J1"
+
+        if delta_t == (5 / 60):
+            Load_Profile_Data = np.genfromtxt(
+                'Load Profile Data/EnerNOC GreenButton/Selected Clean 2017 EnerNOC Load Profiles/5-Minute Data/San Francisco Office/Vector Format/Clean_Vector_2017_San_Francisco_Office.csv', delimiter=',')
+
+        elif delta_t == (15 / 60):
+            Load_Profile_Data = np.genfromtxt(
+                'Load Profile Data/EnerNOC GreenButton/Selected Clean 2017 EnerNOC Load Profiles/5-Minute Data/San Francisco Office/Vector Format/Clean_Vector_2017_San_Francisco_Office.csv', delimiter=',')
+
+#end jake work
 
     elif Load_Profile_Name_Input == "WattTime GreenButton Residential Long Beach":
 

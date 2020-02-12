@@ -12,21 +12,21 @@ def Import_Marginal_Emissions_Rate_Evaluation_Data(Input_Output_Data_Directory_L
 
         if delta_t == (5 / 60):
             Marginal_Emissions_Rate_Evaluation_Data = np.genfromtxt(
-                'Emissions Data/Itron-E3 Methodology/2017/Clean Emissions Data/Real Time 5 Minute Emissions Signal/5-Minute Data/2017_RT5M_NP15_Marginal_Emissions_Rate_Vector.csv', delimiter=',')
+                'Emissions Data/Itron-E3 Methodology/2017/Clean Emissions Data/Real Time 5 Minute Emissions Signal/5-Minute Data/SGIP_Evaluation_Emissions_for_import.csv', delimiter=',')
 
         elif delta_t == (15 / 60):
             Marginal_Emissions_Rate_Evaluation_Data = np.genfromtxt(
-                'Emissions Data/Itron-E3 Methodology/2017/Clean Emissions Data/Real Time 5 Minute Emissions Signal/15-Minute Data/2017_RT5M_NP15_Marginal_Emissions_Rate_Vector.csv', delimiter=',')
+                'Emissions Data/Itron-E3 Methodology/2017/Clean Emissions Data/Real Time 5 Minute Emissions Signal/15-Minute Data/SGIP_Evaluation_Emissions_for_import.csv', delimiter=',')
 
     elif Emissions_Evaluation_Signal_Input == "SP15 RT5M":
 
         if delta_t == (5 / 60):
             Marginal_Emissions_Rate_Evaluation_Data = np.genfromtxt(
-                'Emissions Data/Itron-E3 Methodology/2017/Clean Emissions Data/Real Time 5 Minute Emissions Signal/5-Minute Data/2017_RT5M_SP15_Marginal_Emissions_Rate_Vector.csv', delimiter=',')
+                'Emissions Data/Itron-E3 Methodology/2017/Clean Emissions Data/Real Time 5 Minute Emissions Signal/5-Minute Data/SGIP_Evaluation_Emissions_for_import.csv', delimiter=',')
 
         elif delta_t == (15 / 60):
             Marginal_Emissions_Rate_Evaluation_Data = np.genfromtxt(
-                'Emissions Data/Itron-E3 Methodology/2017/Clean Emissions Data/Real Time 5 Minute Emissions Signal/15-Minute Data/2017_RT5M_SP15_Marginal_Emissions_Rate_Vector.csv', delimiter=',')
+                'Emissions Data/Itron-E3 Methodology/2017/Clean Emissions Data/Real Time 5 Minute Emissions Signal/15-Minute Data/SGIP_Evaluation_Emissions_for_import.csv', delimiter=',')
 
 
     # Return to OSESMO Git Repository Directory
