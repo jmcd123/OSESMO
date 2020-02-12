@@ -276,10 +276,10 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
     # Import Utility Marginal Cost Data
     # Marginal Costs are mapped to load profile location
 
-    from Import_Utility_Marginal_Cost_Data import Import_Utility_Marginal_Cost_Data
+    #from Import_Utility_Marginal_Cost_Data import Import_Utility_Marginal_Cost_Data
 
-    [Generation_Cost_Data, Representative_Distribution_Cost_Data] = Import_Utility_Marginal_Cost_Data(Input_Output_Data_Directory_Location,
-                                                             OSESMO_Git_Repo_Directory, delta_t, Load_Profile_Name_Input)
+    #[Generation_Cost_Data, Representative_Distribution_Cost_Data] = Import_Utility_Marginal_Cost_Data(Input_Output_Data_Directory_Location,
+                                                             #OSESMO_Git_Repo_Directory, delta_t, Load_Profile_Name_Input)
 
 
     # Set Directory to Box Sync Folder

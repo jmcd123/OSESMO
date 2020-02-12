@@ -12,11 +12,11 @@ matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 
 # OSESMO Git Repository Directory Location
-OSESMO_Git_Repo_Directory = '/Users/Ryan/Library/Mobile Documents/com~apple~CloudDocs/Ryan\'s Stuff/2018/OSESMO/OSESMO Python'
+OSESMO_Git_Repo_Directory = '/Users/Jake/BOOTCAMP/OSESMO/OSESMO Python'
 
 # Import/Output Data Directory Location
-Input_Output_Data_Directory_Location = '/Users/Ryan/Box Sync/GHG Signal Working Group'
-# Input_Output_Data_Directory_Location = '/Users/Ryan/Library/Mobile Documents/com~apple~CloudDocs/Ryan\'s Stuff/2018/OSESMO/Sample Input and Output Data'
+# Input_Output_Data_Directory_Location = '/Users/Ryan/Box Sync/GHG Signal Working Group'
+Input_Output_Data_Directory_Location = '/Users/Jake/BOOTCAMP/OSESMO/Sample Input and Output Data'
 
 # Show/Export Plots and Data Toggles
 
@@ -30,7 +30,7 @@ Export_Data = 0  # 0 = Don't export data, 1 = export data
 
 # Modeling Team Name
 # Name of the company or organization performing modeling.
-Modeling_Team_Input = "Enel EnerNOC/SGIP Working Group"
+Modeling_Team_Input = "Jake McDermott analysis"
 
 # Model Run Number
 # Used by modelers to uniquely identify their own model runs.
@@ -38,7 +38,7 @@ Model_Run_Number_Input = 1
 
 # Model Type
 # Storage Only or Solar Plus Storage
-Model_Type_Input = "Solar Plus Storage"
+Model_Type_Input = "Storage Only"
 
 # Model Timestep Resolution
 # Model timestep resolution, in minutes.
@@ -64,11 +64,11 @@ Retail_Rate_Name_Input = "PG&E E-19S (OLD)"
 
 # Solar Profile Name
 # Name of selected solar production profile.
-Solar_Profile_Name_Input = "CSI PG&E Commercial & Industrial"
+Solar_Profile_Name_Input = "Not applicable"
 
 # Solar Size kW
 # Nameplate power rating of the solar PV system (kW-DC).
-Solar_Size_Input = 256
+Solar_Size_Input = 0
 
 
 ## Model Input - Storage Hardware Data
@@ -147,7 +147,7 @@ Storage_Control_Algorithm_Name = "OSESMO Economic Dispatch"
 #    positive emissions. Note that due to the model structure, this
 #    constraint is applied on a monthly basis. Carbon price is set to $0/metric ton.
 
-GHG_Reduction_Solution_Input = "GHG Signal Co-Optimization"
+GHG_Reduction_Solution_Input = "No GHG Reduction Solution"
 
 
 # Equivalent Cycling Constraint
@@ -169,7 +169,7 @@ ITC_Constraint_Input = 1
 
 # Carbon Adder Incentive Value - Used for GHG Signal Co-Optimization Only
 # Carbon_Adder_Incentive_Value_Input = 0 # Value of carbon adder, in $ per metric ton.
-Carbon_Adder_Incentive_Value_Input = 15 # Value of carbon adder, in $ per metric ton.
+Carbon_Adder_Incentive_Value_Input = 0 # Value of carbon adder, in $ per metric ton.
 
 
 # Emissions Forecast Signal:
