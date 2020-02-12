@@ -22,9 +22,9 @@ Input_Output_Data_Directory_Location = '/Users/Jake/BOOTCAMP/OSESMO/Sample Input
 
 Show_Plots = 1  # 0 == Don't show plots, 1 == show plots
 
-Export_Plots = 0  # 0 = Don't export plots, 1 = export plots
+Export_Plots = 1  # 0 = Don't export plots, 1 = export plots
 
-Export_Data = 0  # 0 = Don't export data, 1 = export data
+Export_Data = 1  # 0 = Don't export data, 1 = export data
 
 ## Model Inputs - Model Data
 
