@@ -1910,10 +1910,11 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
         ax.set_title('Energy Storage Dispatch Profile')
         fig.autofmt_xdate()
         fig.tight_layout()
-        plt.show()
-
-    if Export_Plots == 1:
         plt.savefig(os.path.join(Output_Directory_Filepath, 'Storage Dispatch Plot.png'))
+        #plt.show()
+
+    #if Export_Plots == 1:
+        #plt.savefig(os.path.join(Output_Directory_Filepath, 'Storage Dispatch Plot.png'))
 
         # Note: The MATLAB version of OSESMO which saves files in .fig format, which allows plots of model runs to be
         # re-opened and then explored interactively (ex. zooming in on specific days).
@@ -1933,10 +1934,11 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
         ax.set_title('Energy Storage Energy Level')
         fig.autofmt_xdate()
         fig.tight_layout()
-        plt.show()
-
-    if Export_Plots == 1:
         plt.savefig(os.path.join(Output_Directory_Filepath, 'Energy Level Plot.png'))
+        #plt.show()
+
+    #if Export_Plots == 1:
+        #plt.savefig(os.path.join(Output_Directory_Filepath, 'Energy Level Plot.png'))
 
 
     ## Plot Volumetric Electricity Price Schedule and Marginal Carbon Emission Rates
@@ -1956,11 +1958,12 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
         ax2.tick_params('y', colors='r')
         fig.autofmt_xdate()
         fig.tight_layout()
-        plt.show()
-
-
-    if Export_Plots == 1:
         plt.savefig(os.path.join(Output_Directory_Filepath, 'Energy Price and Carbon Plot.png'))
+        #plt.show()
+
+
+    #if Export_Plots == 1:
+        #plt.savefig(os.path.join(Output_Directory_Filepath, 'Energy Price and Carbon Plot.png'))
 
 
     ## Plot Coincident and Non-Coincident Demand Charge Schedule
@@ -2003,10 +2006,11 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
         ax.set_title('Coincident + Non-Coincident Demand Charge Schedule')
         fig.autofmt_xdate()
         fig.tight_layout()
-        plt.show()
-
-    if Export_Plots == 1:
         plt.savefig(os.path.join(Output_Directory_Filepath, 'Demand Charge Plot.png'))
+        #plt.show()
+
+    #if Export_Plots == 1:
+        #plt.savefig(os.path.join(Output_Directory_Filepath, 'Demand Charge Plot.png'))
 
 
     ## Plot Load, Net Load with Solar Only, Net Load with Solar and Storage
@@ -2024,7 +2028,8 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
             ax.legend()
             fig.autofmt_xdate()
             fig.tight_layout()
-            plt.show()
+            plt.savefig(os.path.join(Output_Directory_Filepath, 'Net Load Plot.png'))
+            #plt.show()
 
         elif Model_Type_Input == "Solar Plus Storage":
 
@@ -2041,8 +2046,8 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
             fig.tight_layout()
             plt.show()
 
-    if Export_Plots == 1:
-        plt.savefig(os.path.join(Output_Directory_Filepath, 'Net Load Plot.png'))
+    #if Export_Plots == 1:
+        #plt.savefig(os.path.join(Output_Directory_Filepath, 'Net Load Plot.png'))
 
 
     if Model_Type_Input == "Storage Only":
@@ -2263,10 +2268,11 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
         plt.xlabel('Month')
         plt.ylim(bottom=Min_Monthly_Bill_ylim, top=Max_Monthly_Bill_ylim)
         plt.title('Monthly Costs, Without Storage')
-        plt.show()
-
-    if Export_Plots == 1:
         plt.savefig(os.path.join(Output_Directory_Filepath, 'Monthly Costs Baseline Plot.png'))
+        #plt.show()
+
+    #if Export_Plots == 1:
+        #plt.savefig(os.path.join(Output_Directory_Filepath, 'Monthly Costs Baseline Plot.png'))
 
     # Plot Monthly Costs With Solar Only
 
@@ -2289,10 +2295,11 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
             plt.xlabel('Month')
             plt.ylim(bottom = Min_Monthly_Bill_ylim, top = Max_Monthly_Bill_ylim)
             plt.title('Monthly Costs, With Solar Only')
-            plt.show()
+            plt.savefig(os.path.join(Output_Directory_Filepath, 'Monthly Costs with Solar Only Plot.png'))
+            #plt.show()
 
-    if Export_Plots == 1:
-        plt.savefig(os.path.join(Output_Directory_Filepath, 'Monthly Costs with Solar Only Plot.png'))
+    #if Export_Plots == 1:
+        #plt.savefig(os.path.join(Output_Directory_Filepath, 'Monthly Costs with Solar Only Plot.png'))
 
 
     # Plot Monthly Costs with Solar and Storage
@@ -2353,10 +2360,11 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
 
         plt.xlabel('Month')
         plt.title('Monthly Savings From Storage')
-        plt.show()
-
-    if Export_Plots == 1:
         plt.savefig(os.path.join(Output_Directory_Filepath, 'Monthly Savings from Storage Plot.png'))
+        #plt.show()
+
+    #if Export_Plots == 1:
+        #plt.savefig(os.path.join(Output_Directory_Filepath, 'Monthly Savings from Storage Plot.png'))
 
 
     ## Report Annual Savings

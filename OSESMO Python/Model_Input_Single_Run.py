@@ -53,7 +53,7 @@ Customer_Class_Input = "Commercial and Industrial"
 
 # Load Profile Name
 # Name of the selected customer load profile.
-Load_Profile_Name_Input = "ENERNOC Bank Financial Services"
+Load_Profile_Name_Input = "ENERNOC Denver Shopping Center"
 
 # Retail Rate Name
 # Name of the selected retail rate.
