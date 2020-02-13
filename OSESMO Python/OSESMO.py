@@ -108,6 +108,10 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
 
     if Load_Profile_Name_Input == "WattTime GreenButton Residential Berkeley" or \
         Load_Profile_Name_Input == "WattTime GreenButton Residential Coulterville" or \
+        Load_Profile_Name_Input == "ENERNOC Bank Financial Services" or \
+        Load_Profile_Name_Input == "ENERNOC Commercial Real Estate" or \
+        Load_Profile_Name_Input == "ENERNOC Denver Shopping Center" or \
+        Load_Profile_Name_Input == "ENERNOC Food Grocer" or \
         Load_Profile_Name_Input == "PG&E GreenButton E-6 Residential" or \
         Load_Profile_Name_Input == "PG&E GreenButton Central Valley Residential CARE" or \
         Load_Profile_Name_Input == "PG&E GreenButton Central Valley Residential Non-CARE" or \

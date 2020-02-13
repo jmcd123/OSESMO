@@ -29,11 +29,48 @@ def Import_Load_Profile_Data(Input_Output_Data_Directory_Location=None, OSESMO_G
 
         if delta_t == (5 / 60):
             Load_Profile_Data = np.genfromtxt(
-                'Load Profile Data/EnerNOC GreenButton/Selected Clean 2017 EnerNOC Load Profiles/5-Minute Data/San Francisco Office/Vector Format/Clean_Vector_2017_San_Francisco_Office.csv', delimiter=',')
+                'Load Profile Data/EnerNOC GreenButton/Selected Clean 2017 EnerNOC Load Profiles/15-Minute Data/San Francisco Office/Vector Format/ENERNOC_30_BankFinancialServices_Load.csv', delimiter=',')
 
         elif delta_t == (15 / 60):
             Load_Profile_Data = np.genfromtxt(
-                'Load Profile Data/EnerNOC GreenButton/Selected Clean 2017 EnerNOC Load Profiles/5-Minute Data/San Francisco Office/Vector Format/Clean_Vector_2017_San_Francisco_Office.csv', delimiter=',')
+                'Load Profile Data/EnerNOC GreenButton/Selected Clean 2017 EnerNOC Load Profiles/15-Minute Data/San Francisco Office/Vector Format/ENERNOC_30_BankFinancialServices_Load.csv', delimiter=',')
+
+    elif Load_Profile_Name_Input == "ENERNOC Commercial Real Estate":
+    
+        Load_Profile_Master_Index = "J2"
+
+        if delta_t == (5 / 60):
+            Load_Profile_Data = np.genfromtxt(
+                'Load Profile Data/EnerNOC GreenButton/Selected Clean 2017 EnerNOC Load Profiles/15-Minute Data/San Francisco Office/Vector Format/ENERNOC_31_CommercialRealEstate_Load.csv', delimiter=',')
+
+        elif delta_t == (15 / 60):
+            Load_Profile_Data = np.genfromtxt(
+                'Load Profile Data/EnerNOC GreenButton/Selected Clean 2017 EnerNOC Load Profiles/15-Minute Data/San Francisco Office/Vector Format/ENERNOC_31_CommercialRealEstate_Load.csv', delimiter=',')
+
+    elif Load_Profile_Name_Input == "ENERNOC Denver Shopping Center":
+    
+        Load_Profile_Master_Index = "J3"
+
+        if delta_t == (5 / 60):
+            Load_Profile_Data = np.genfromtxt(
+                'Load Profile Data/EnerNOC GreenButton/Selected Clean 2017 EnerNOC Load Profiles/15-Minute Data/San Francisco Office/Vector Format/ENERNOC_51_DENVER_ShoppingCenter_Load.csv', delimiter=',')
+
+        elif delta_t == (15 / 60):
+            Load_Profile_Data = np.genfromtxt(
+                'Load Profile Data/EnerNOC GreenButton/Selected Clean 2017 EnerNOC Load Profiles/15-Minute Data/San Francisco Office/Vector Format/ENERNOC_51_DENVER_ShoppingCenter_Load.csv', delimiter=',')
+
+    elif Load_Profile_Name_Input == "ENERNOC Food Grocer":
+    
+        Load_Profile_Master_Index = "J4"
+
+        if delta_t == (5 / 60):
+            Load_Profile_Data = np.genfromtxt(
+                'Load Profile Data/EnerNOC GreenButton/Selected Clean 2017 EnerNOC Load Profiles/15-Minute Data/San Francisco Office/Vector Format/ENERNOC_281_FoodGrocer_Load.csv', delimiter=',')
+
+        elif delta_t == (15 / 60):
+            Load_Profile_Data = np.genfromtxt(
+                'Load Profile Data/EnerNOC GreenButton/Selected Clean 2017 EnerNOC Load Profiles/15-Minute Data/San Francisco Office/Vector Format/ENERNOC_281_FoodGrocer_Load.csv', delimiter=',')
+
 
 #end jake work
 
