@@ -24,7 +24,12 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
             Volumetric_Rate_Data = np.genfromtxt(
                 'Rates/PG&E E-1 Tier 1/2017/15-Minute Data/Vector Format/2017_PGE_E1_Tier1_Energy_Rates_Vector.csv',
                 delimiter=',')
+    
+    #Jake import volumetric rate data
 
+
+
+    #End jake work
 
     elif Retail_Rate_Name_Input == "PG&E E-1 Tier 3":
 
@@ -428,7 +433,21 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
         # Summer Months
         First_Summer_Month = 6 # June is the first summer month for this rate.
         Last_Summer_Month = 9 # September is the last summer month for this rate.
-        
+
+
+    #Jake work on demand charge and fixed charge variable data
+
+
+
+
+
+
+
+
+    #End jake work
+
+
+
         
     elif Retail_Rate_Name_Input == "PG&E A-6 (OLD)":
         
