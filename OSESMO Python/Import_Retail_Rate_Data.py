@@ -26,9 +26,95 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
                 delimiter=',')
     
     #Jake import volumetric rate data
+    elif Retail_Rate_Name_Input == "PG&E A-10 Base Case":
+    
+        Retail_Rate_Master_Index = "Jake_BaseA"
+        Retail_Rate_Effective_Date = "2019-01-01"
 
+        if delta_t == (5 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/A10_Energy_Rates_Vectors.csv',
+                delimiter=',')
 
+        elif delta_t == (15 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/A10_Energy_Rates_Vectors.csv',
+                delimiter=',')
+    
+    elif Retail_Rate_Name_Input == "PG&E B-10 Base Case":
+        
+        Retail_Rate_Master_Index = "Jake_BaseB"
+        Retail_Rate_Effective_Date = "2019-01-01"
 
+        if delta_t == (5 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/B10_Energy_Rates_Vectors.csv',
+                delimiter=',')
+
+        elif delta_t == (15 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/B10_Energy_Rates_Vectors.csv',
+                delimiter=',')
+
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt1 Case":
+        
+        Retail_Rate_Master_Index = "Jake_Alt1"
+        Retail_Rate_Effective_Date = "2019-01-01"
+
+        if delta_t == (5 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt1_Energy_Rates_Vectors.csv',
+                delimiter=',')
+
+        elif delta_t == (15 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt1_Energy_Rates_Vectors.csv',
+                delimiter=',')
+
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt2 Case":
+        
+        Retail_Rate_Master_Index = "Jake_Alt2"
+        Retail_Rate_Effective_Date = "2019-01-01"
+
+        if delta_t == (5 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt2_Energy_Rates_Vectors.csv',
+                delimiter=',')
+
+        elif delta_t == (15 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt2_Energy_Rates_Vectors.csv',
+                delimiter=',')
+
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt3 Case":
+        
+        Retail_Rate_Master_Index = "Jake_Alt3"
+        Retail_Rate_Effective_Date = "2019-01-01"
+
+        if delta_t == (5 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt3_Energy_Rates_Vectors.csv',
+                delimiter=',')
+
+        elif delta_t == (15 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt3_Energy_Rates_Vectors.csv',
+                delimiter=',')
+
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt4 Case":
+        
+        Retail_Rate_Master_Index = "Jake_Alt4"
+        Retail_Rate_Effective_Date = "2019-01-01"
+
+        if delta_t == (5 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt4_Energy_Rates_Vectors.csv',
+                delimiter=',')
+
+        elif delta_t == (15 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt4_Energy_Rates_Vectors.csv',
+                delimiter=',')
     #End jake work
 
     elif Retail_Rate_Name_Input == "PG&E E-1 Tier 3":
@@ -436,12 +522,114 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
 
 
     #Jake work on demand charge and fixed charge variable data
+    #Make sure to update Base case figures
+    elif Retail_Rate_Name_Input == "PG&E A-10 Base Case":
+        
+        # Demand Charges - PG&E A-6 (OLD), Single-Phase
+        Summer_Peak_DC = 0
+        Summer_Part_Peak_DC = 0
+        Summer_Noncoincident_DC = 0
+        Winter_Peak_DC = 0
+        Winter_Part_Peak_DC = 0
+        Winter_Noncoincident_DC = 0
+        
+        # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
+        Fixed_Per_Meter_Day_Charge = (0.32854 + 0.20107)  # $ per meter per day
+        Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
+        
+        # Summer Months
+        First_Summer_Month = 5 # May is the first summer month for this rate.
+        Last_Summer_Month = 10 # October is the last summer month for this rate.
 
+    elif Retail_Rate_Name_Input == "PG&E B-10 Base Case":
+        
+        # Demand Charges - PG&E A-6 (OLD), Single-Phase
+        Summer_Peak_DC = 0
+        Summer_Part_Peak_DC = 0
+        Summer_Noncoincident_DC = 0
+        Winter_Peak_DC = 0
+        Winter_Part_Peak_DC = 0
+        Winter_Noncoincident_DC = 0
+        
+        # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
+        Fixed_Per_Meter_Day_Charge = (0.32854 + 0.20107)  # $ per meter per day
+        Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
+        
+        # Summer Months
+        First_Summer_Month = 5 # May is the first summer month for this rate.
+        Last_Summer_Month = 10 # October is the last summer month for this rate.
 
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt1 Case":
+        
+        # Demand Charges - PG&E A-6 (OLD), Single-Phase
+        Summer_Peak_DC = 0
+        Summer_Part_Peak_DC = 0
+        Summer_Noncoincident_DC = 0
+        Winter_Peak_DC = 0
+        Winter_Part_Peak_DC = 0
+        Winter_Noncoincident_DC = 0
+        
+        # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
+        Fixed_Per_Meter_Day_Charge = (0.32854 + 0.20107)  # $ per meter per day
+        Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
+        
+        # Summer Months
+        First_Summer_Month = 5 # May is the first summer month for this rate.
+        Last_Summer_Month = 10 # October is the last summer month for this rate.
 
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt2 Case":
+        
+        # Demand Charges - PG&E A-6 (OLD), Single-Phase
+        Summer_Peak_DC = 0
+        Summer_Part_Peak_DC = 0
+        Summer_Noncoincident_DC = 0
+        Winter_Peak_DC = 0
+        Winter_Part_Peak_DC = 0
+        Winter_Noncoincident_DC = 0
+        
+        # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
+        Fixed_Per_Meter_Day_Charge = (0.32854 + 0.20107)  # $ per meter per day
+        Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
+        
+        # Summer Months
+        First_Summer_Month = 5 # May is the first summer month for this rate.
+        Last_Summer_Month = 10 # October is the last summer month for this rate.
 
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt3 Case":
+        
+        # Demand Charges - PG&E A-6 (OLD), Single-Phase
+        Summer_Peak_DC = 0
+        Summer_Part_Peak_DC = 0
+        Summer_Noncoincident_DC = 0
+        Winter_Peak_DC = 0
+        Winter_Part_Peak_DC = 0
+        Winter_Noncoincident_DC = 0
+        
+        # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
+        Fixed_Per_Meter_Day_Charge = (0.32854 + 0.20107)  # $ per meter per day
+        Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
+        
+        # Summer Months
+        First_Summer_Month = 5 # May is the first summer month for this rate.
+        Last_Summer_Month = 10 # October is the last summer month for this rate.
 
-
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt4 Case":
+        
+        # Demand Charges - PG&E A-6 (OLD), Single-Phase
+        Summer_Peak_DC = 0
+        Summer_Part_Peak_DC = 0
+        Summer_Noncoincident_DC = 0
+        Winter_Peak_DC = 0
+        Winter_Part_Peak_DC = 0
+        Winter_Noncoincident_DC = 0
+        
+        # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
+        Fixed_Per_Meter_Day_Charge = (0.32854 + 0.20107)  # $ per meter per day
+        Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
+        
+        # Summer Months
+        First_Summer_Month = 5 # May is the first summer month for this rate.
+        Last_Summer_Month = 10 # October is the last summer month for this rate.
 
 
     #End jake work
@@ -935,7 +1123,69 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
             Month_Data = np.genfromtxt(
                 'Rates/PG&E A-1-STORAGE (NEW)/2017/15-Minute Data/Vector Format/2017_PGE_A1_STORAGE_Month_Vector.csv', delimiter=',')
         
+# Jake work start here
+    elif Retail_Rate_Name_Input == "PG&E A-10 Base Case":
         
+        if delta_t == (5/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/A10_Cost_Vectors_Month.csv', delimiter=',')
+
+        elif delta_t == (15/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/A10_Cost_Vectors_Month.csv', delimiter=',')
+    
+    elif Retail_Rate_Name_Input == "PG&E B-10 Base Case":
+        
+        if delta_t == (5/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/B10_Cost_Vectors_Month.csv', delimiter=',')
+
+        elif delta_t == (15/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/B10_Cost_Vectors_Month.csv', delimiter=',')
+
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt1 Case":
+        
+        if delta_t == (5/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt1_Cost_Vectors_Month.csv', delimiter=',')
+
+        elif delta_t == (15/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt1_Cost_Vectors_Month.csv', delimiter=',')
+
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt2 Case":
+            
+        if delta_t == (5/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt2_Cost_Vectors_Month.csv', delimiter=',')
+
+        elif delta_t == (15/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt2_Cost_Vectors_Month.csv', delimiter=',')
+
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt3 Case":
+            
+        if delta_t == (5/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt3_Cost_Vectors_Month.csv', delimiter=',')
+
+        elif delta_t == (15/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt3_Cost_Vectors_Month.csv', delimiter=',')
+
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt4 Case":
+            
+        if delta_t == (5/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt4_Cost_Vectors_Month.csv', delimiter=',')
+
+        elif delta_t == (15/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt4_Cost_Vectors_Month.csv', delimiter=',')
+
+    #END JAKE WORK
+
     elif Retail_Rate_Name_Input == "PG&E A-6 (OLD)":
         
         if delta_t == (5/60):
@@ -1222,6 +1472,60 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
         Summer_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
         Winter_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
         Winter_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+
+#Start Jake work; none of these schedules will have coincident peak or part-peak demand charges
+
+    elif Retail_Rate_Name_Input == "PG&E A-10 Base Case":
+        
+        Summer_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Summer_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+
+    elif Retail_Rate_Name_Input == "PG&E B-10 Base Case":
+            
+        Summer_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Summer_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt1 Case":
+            
+        Summer_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Summer_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt2 Case":
+            
+        Summer_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Summer_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt2 Case":
+            
+        Summer_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Summer_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt3 Case":
+            
+        Summer_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Summer_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+
+    elif Retail_Rate_Name_Input == "PG&E X-10 Alt4 Case":
+            
+        Summer_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Summer_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+
+
+   #END JAKE WORK
         
     elif Retail_Rate_Name_Input == "PG&E A-6 PDP (OLD)":
         

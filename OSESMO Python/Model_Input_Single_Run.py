@@ -53,10 +53,12 @@ Customer_Class_Input = "Commercial and Industrial"
 
 # Load Profile Name
 # Name of the selected customer load profile.
+# Possible Options are: "ENERNOC Denver Shopping Center", "ENERNOC Bank Financial Services", "ENERNOC Commercial Real Estate", "ENERNOC Food Grocer"
 Load_Profile_Name_Input = "ENERNOC Denver Shopping Center"
 
 # Retail Rate Name
 # Name of the selected retail rate.
+# Possible options are: "PG&E A-10 Base Case", "PG&E B-10 Base Case", "PG&E X-10 Alt1 Case", "PG&E X-10 Alt2 Case", "PG&E X-10 Alt3 Case", "PG&E X-10 Alt3 Case"
 Retail_Rate_Name_Input = "PG&E E-19S (OLD)"
 
 
@@ -188,7 +190,7 @@ Emissions_Forecast_Signal_Input = "NP15 RT5M"
 # These model inputs are not reported, as they are not common to all models.
 
 # Start Time - Used in Plots
-Start_Time_Input = dt.datetime(2017,1,1,0,0)  #2017-01-01 00:00
+Start_Time_Input = dt.datetime(2019,1,1,0,0)  #2017-01-01 00:00
 
 # Solar Installed Cost per kW
 # Taken from LBNL's Tracking the Sun 10 report, Tables B-2 and B-3 (pgs. 50 & 51)
