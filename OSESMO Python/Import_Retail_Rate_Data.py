@@ -38,7 +38,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
 
         elif delta_t == (15 / 60):
             Volumetric_Rate_Data = np.genfromtxt(
-                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/A10_Energy_Rates_Vectors.csv',
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/A10_Energy_Rates_Vectors.csv',
                 delimiter=',')
     
     elif Retail_Rate_Name_Input == "PG&E B-10 Base Case":
@@ -53,7 +53,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
 
         elif delta_t == (15 / 60):
             Volumetric_Rate_Data = np.genfromtxt(
-                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/B10_Energy_Rates_Vectors.csv',
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/B10_Energy_Rates_Vectors.csv',
                 delimiter=',')
 
     elif Retail_Rate_Name_Input == "PG&E X-10 Alt1 Case":
@@ -68,7 +68,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
 
         elif delta_t == (15 / 60):
             Volumetric_Rate_Data = np.genfromtxt(
-                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt1_Energy_Rates_Vectors.csv',
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/X10_Alt1_Energy_Rates_Vectors.csv',
                 delimiter=',')
 
     elif Retail_Rate_Name_Input == "PG&E X-10 Alt2 Case":
@@ -83,7 +83,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
 
         elif delta_t == (15 / 60):
             Volumetric_Rate_Data = np.genfromtxt(
-                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt2_Energy_Rates_Vectors.csv',
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/X10_Alt2_Energy_Rates_Vectors.csv',
                 delimiter=',')
 
     elif Retail_Rate_Name_Input == "PG&E X-10 Alt3 Case":
@@ -98,7 +98,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
 
         elif delta_t == (15 / 60):
             Volumetric_Rate_Data = np.genfromtxt(
-                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt3_Energy_Rates_Vectors.csv',
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/X10_Alt3_Energy_Rates_Vectors.csv',
                 delimiter=',')
 
     elif Retail_Rate_Name_Input == "PG&E X-10 Alt4 Case":
@@ -113,7 +113,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
 
         elif delta_t == (15 / 60):
             Volumetric_Rate_Data = np.genfromtxt(
-                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt4_Energy_Rates_Vectors.csv',
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/X10_Alt4_Energy_Rates_Vectors.csv',
                 delimiter=',')
     #End jake work
 
@@ -525,34 +525,34 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
     #Make sure to update Base case figures
     elif Retail_Rate_Name_Input == "PG&E A-10 Base Case":
         
-        # Demand Charges - PG&E A-6 (OLD), Single-Phase
+        # Demand Charges - PG&E A-10 Single-Phase
         Summer_Peak_DC = 0
         Summer_Part_Peak_DC = 0
-        Summer_Noncoincident_DC = 0
+        Summer_Noncoincident_DC = 13.42
         Winter_Peak_DC = 0
         Winter_Part_Peak_DC = 0
-        Winter_Noncoincident_DC = 0
+        Winter_Noncoincident_DC = 13.42
         
         # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
-        Fixed_Per_Meter_Day_Charge = (0.32854 + 0.20107)  # $ per meter per day
+        Fixed_Per_Meter_Day_Charge = (4.59959)  # $ per meter per day
         Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
         
         # Summer Months
         First_Summer_Month = 5 # May is the first summer month for this rate.
         Last_Summer_Month = 10 # October is the last summer month for this rate.
-
+        
     elif Retail_Rate_Name_Input == "PG&E B-10 Base Case":
         
-        # Demand Charges - PG&E A-6 (OLD), Single-Phase
+        # Demand Charges - PG&E B-10, Single-Phase
         Summer_Peak_DC = 0
         Summer_Part_Peak_DC = 0
-        Summer_Noncoincident_DC = 0
+        Summer_Noncoincident_DC = 13.42
         Winter_Peak_DC = 0
         Winter_Part_Peak_DC = 0
-        Winter_Noncoincident_DC = 0
+        Winter_Noncoincident_DC = 13.42
         
         # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
-        Fixed_Per_Meter_Day_Charge = (0.32854 + 0.20107)  # $ per meter per day
+        Fixed_Per_Meter_Day_Charge = (4.59959)  # $ per meter per day
         Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
         
         # Summer Months
@@ -1132,7 +1132,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
 
         elif delta_t == (15/60):
             Month_Data = np.genfromtxt(
-                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/A10_Cost_Vectors_Month.csv', delimiter=',')
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/A10_Cost_Vectors_Month.csv', delimiter=',')
     
     elif Retail_Rate_Name_Input == "PG&E B-10 Base Case":
         
@@ -1142,7 +1142,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
 
         elif delta_t == (15/60):
             Month_Data = np.genfromtxt(
-                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/B10_Cost_Vectors_Month.csv', delimiter=',')
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/B10_Cost_Vectors_Month.csv', delimiter=',')
 
     elif Retail_Rate_Name_Input == "PG&E X-10 Alt1 Case":
         
@@ -1152,7 +1152,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
 
         elif delta_t == (15/60):
             Month_Data = np.genfromtxt(
-                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt1_Cost_Vectors_Month.csv', delimiter=',')
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/X10_Alt1_Cost_Vectors_Month.csv', delimiter=',')
 
     elif Retail_Rate_Name_Input == "PG&E X-10 Alt2 Case":
             
@@ -1162,7 +1162,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
 
         elif delta_t == (15/60):
             Month_Data = np.genfromtxt(
-                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt2_Cost_Vectors_Month.csv', delimiter=',')
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/X10_Alt2_Cost_Vectors_Month.csv', delimiter=',')
 
     elif Retail_Rate_Name_Input == "PG&E X-10 Alt3 Case":
             
@@ -1172,7 +1172,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
 
         elif delta_t == (15/60):
             Month_Data = np.genfromtxt(
-                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt3_Cost_Vectors_Month.csv', delimiter=',')
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/X10_Alt3_Cost_Vectors_Month.csv', delimiter=',')
 
     elif Retail_Rate_Name_Input == "PG&E X-10 Alt4 Case":
             
@@ -1182,7 +1182,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
 
         elif delta_t == (15/60):
             Month_Data = np.genfromtxt(
-                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/X10_Alt4_Cost_Vectors_Month.csv', delimiter=',')
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/X10_Alt4_Cost_Vectors_Month.csv', delimiter=',')
 
     #END JAKE WORK
 

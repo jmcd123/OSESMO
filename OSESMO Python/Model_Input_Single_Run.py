@@ -58,8 +58,8 @@ Load_Profile_Name_Input = "ENERNOC Denver Shopping Center"
 
 # Retail Rate Name
 # Name of the selected retail rate.
-# Possible options are: "PG&E A-10 Base Case", "PG&E B-10 Base Case", "PG&E X-10 Alt1 Case", "PG&E X-10 Alt2 Case", "PG&E X-10 Alt3 Case", "PG&E X-10 Alt3 Case"
-Retail_Rate_Name_Input = "PG&E E-19S (OLD)"
+# Possible options are: "PG&E A-10 Base Case", "PG&E B-10 Base Case", "PG&E X-10 Alt1 Case", "PG&E X-10 Alt2 Case", "PG&E X-10 Alt3 Case", "PG&E X-10 Alt3 Case" OR PG&E E-19S (OLD)
+Retail_Rate_Name_Input = "PG&E A-10 Base Case"
 
 
 ## Model Input - Solar Data
@@ -81,11 +81,24 @@ Storage_Type_Input = "Lithium-Ion Battery"
 
 # Storage Power Rating
 # Nameplate storage system charge/discharge power rating (kW).
-Storage_Power_Rating_Input = 250
+# Link to load profiles: "ENERNOC Denver Shopping Center", "ENERNOC Bank Financial Services", "ENERNOC Commercial Real Estate", "ENERNOC Food Grocer"
+# values below are based on (max demand - avg demand) for each load profile; NREL methodology for sizing BTM batteries
+if Load_Profile_Name_Input == "ENERNOC Denver Shopping Center":
+    Storage_Power_Rating_Input = (76.62 - 35.38)
+
+elif Load_Profile_Name_Input == "ENERNOC Bank Financial Services":
+    Storage_Power_Rating_Input = (65.05 - 16.14)
+
+elif Load_Profile_Name_Input == "ENERNOC Commercial Real Estate":
+    Storage_Power_Rating_Input = (45.82 - 9.20)
+
+elif Load_Profile_Name_Input == "ENERNOC Food Grocer":
+    Storage_Power_Rating_Input = (25.98 - 15.03)
 
 # Usable Storage Capacity
 # Usable storage energy capacity (kWh). Report usable capacity (accounting for depth of discharge), and not nameplate capacity.
-Usable_Storage_Capacity_Input = 500
+
+Usable_Storage_Capacity_Input = (2 * Storage_Power_Rating_Input)
 
 # Single-Cycle RTE
 # Single-cycle (or nameplate) storage round-trip efficiency (50#, 70#, or 85#).
