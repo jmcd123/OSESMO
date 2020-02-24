@@ -2401,16 +2401,16 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
 
     Annual_Customer_Bill_Savings_from_Storage_Percent = (Annual_Customer_Bill_Savings_from_Storage / Annual_Customer_Bill_Baseline)
 
-    if Model_Type_Input == "Solar Plus Storage":
-        Solar_Installed_Cost = Solar_Size_Input * Solar_Installed_Cost_per_kW
-        Solar_Simple_Payback = Solar_Installed_Cost / Annual_Customer_Bill_Savings_from_Solar
+    if Model_Type_Input == "Storage Only":
+        #Solar_Installed_Cost = Solar_Size_Input * Solar_Installed_Cost_per_kW
+        #Solar_Simple_Payback = Solar_Installed_Cost / Annual_Customer_Bill_Savings_from_Solar
 
-        print('Annual cost savings from solar is ${0}, representing {1}% of the original ${2} bill.'.format(
-                int(Annual_Customer_Bill_Savings_from_Solar), round(Annual_Customer_Bill_Savings_from_Solar_Percent * 100, 2),
-                int(Annual_Customer_Bill_Baseline)))
+        #print('Annual cost savings from solar is ${0}, representing {1}% of the original ${2} bill.'.format(
+                #int(Annual_Customer_Bill_Savings_from_Solar), round(Annual_Customer_Bill_Savings_from_Solar_Percent * 100, 2),
+                #int(Annual_Customer_Bill_Baseline)))
 
-        print('The solar PV system has a simple payback of {0} years, not including incentives.'.format(
-                round(Solar_Simple_Payback, 1)))
+       # print('The solar PV system has a simple payback of {0} years, not including incentives.'.format(
+                #round(Solar_Simple_Payback, 1)))
 
         Storage_Installed_Cost = Total_Storage_Capacity * Storage_Installed_Cost_per_kWh
 
@@ -2861,10 +2861,10 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
                                          Annual_Demand_Charge_Cost_Baseline, Annual_Demand_Charge_Cost_with_Solar_Only, Annual_Demand_Charge_Cost_with_Solar_and_Storage, \
                                          Annual_Energy_Charge_Cost_Baseline, Annual_Energy_Charge_Cost_with_Solar_Only, Annual_Energy_Charge_Cost_with_Solar_and_Storage, \
                                          Annual_Peak_Demand_Baseline, Annual_Peak_Demand_with_Solar_Only, Annual_Peak_Demand_with_Solar_and_Storage, \
-                                         Annual_Total_Energy_Consumption_Baseline, Annual_Total_Energy_Consumption_with_Solar_Only, Annual_Total_Energy_Consumption_with_Solar_and_Storage, \
+                                         Annual_Total_Energy_Consumption_Baseline, Annual_Total_Energy_Consumption_with_Solar_Only, Annual_Total_Energy_Consumption_with_Solar_and_Storage, Storage_Simple_Payback, \
                                          Output_Summary_Filename, Output_Description_Filename, Output_Visualizations_Filename#, \
                                          #EV_Use, EV_Charge, EV_Gas_Savings, EV_GHG_Savings
-                                         ]).reshape((1, 51))
+                                         ]).reshape((1, 52))
 
     Model_Inputs_and_Outputs = pd.DataFrame(Model_Inputs_and_Outputs, columns = ["Modeling_Team_Input", "Model_Run_Number_Input", "Model_Run_Date_Time", "Model_Type_Input", "Model_Timestep_Resolution", \
                                          "Customer_Class_Input", "Load_Profile_Master_Index", "Load_Profile_Name_Input", \
@@ -2881,7 +2881,7 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
                                          "Annual_Demand_Charge_Cost_Baseline", "Annual_Demand_Charge_Cost_with_Solar_Only", "Annual_Demand_Charge_Cost_with_Solar_and_Storage", \
                                          "Annual_Energy_Charge_Cost_Baseline", "Annual_Energy_Charge_Cost_with_Solar_Only", "Annual_Energy_Charge_Cost_with_Solar_and_Storage", \
                                          "Annual_Peak_Demand_Baseline", "Annual_Peak_Demand_with_Solar_Only", "Annual_Peak_Demand_with_Solar_and_Storage", \
-                                         "Annual_Total_Energy_Consumption_Baseline", "Annual_Total_Energy_Consumption_with_Solar_Only", "Annual_Total_Energy_Consumption_with_Solar_and_Storage", \
+                                         "Annual_Total_Energy_Consumption_Baseline", "Annual_Total_Energy_Consumption_with_Solar_Only", "Annual_Total_Energy_Consumption_with_Solar_and_Storage", "Storage_Simple_Payback", \
                                          "Output_Summary_Filename", "Output_Description_Filename", "Output_Visualizations_Filename", \
                                          #"EV_Use", "EV_Charge", "EV_Gas_Savings", "EV_GHG_Savings"
                                          ])

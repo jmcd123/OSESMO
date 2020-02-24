@@ -195,7 +195,7 @@ Carbon_Adder_Incentive_Value_Input = 0 # Value of carbon adder, in $ per metric 
 #  * WattTime Open Source Model Midnight-Before Forecasted Emissions Signal "DA WattTime"
 #  * Day Ahead Market Forecasted Emissions Signal "DAM"
 
-Emissions_Forecast_Signal_Input = "NP15 RT5M"
+Emissions_Forecast_Signal_Input = "No Emissions Forecast Signal"
 
 
 ## Non-Reported Model Inputs
