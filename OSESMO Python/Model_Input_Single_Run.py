@@ -59,7 +59,7 @@ Load_Profile_Name_Input = "ENERNOC Denver Shopping Center"
 # Retail Rate Name
 # Name of the selected retail rate.
 # Possible options are: "PG&E A-10 Base Case", "PG&E B-10 Base Case", "PG&E X-10 Alt1 Case", "PG&E X-10 Alt2 Case", "PG&E X-10 Alt3 Case", "PG&E X-10 Alt3 Case" OR PG&E E-19S (OLD)
-Retail_Rate_Name_Input = "PG&E A-10 Base Case"
+Retail_Rate_Name_Input = "PG&E B-10 Base Case"
 
 
 ## Model Input - Solar Data

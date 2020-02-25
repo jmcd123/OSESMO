@@ -528,7 +528,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
         # Demand Charges - PG&E A-10 Single-Phase
         Summer_Peak_DC = 0
         Summer_Part_Peak_DC = 0
-        Summer_Noncoincident_DC = 13.42
+        Summer_Noncoincident_DC = 21.63
         Winter_Peak_DC = 0
         Winter_Part_Peak_DC = 0
         Winter_Noncoincident_DC = 13.42
@@ -540,7 +540,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
         # Summer Months
         First_Summer_Month = 5 # May is the first summer month for this rate.
         Last_Summer_Month = 10 # October is the last summer month for this rate.
-        
+
     elif Retail_Rate_Name_Input == "PG&E B-10 Base Case":
         
         # Demand Charges - PG&E B-10, Single-Phase
