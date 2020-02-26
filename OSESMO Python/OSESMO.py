@@ -2197,7 +2197,7 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
 
     def stacked_bar(data, series_labels, category_labels=None,
                     show_values=False, value_format="{}", y_label=None,
-                    grid=True, reverse=False):
+                    grid=False, reverse=False):
         """Plots a stacked bar chart with the data and labels provided.
 
         Keyword arguments:
