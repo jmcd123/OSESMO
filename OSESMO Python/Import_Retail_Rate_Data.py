@@ -542,17 +542,17 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
         Last_Summer_Month = 10 # October is the last summer month for this rate.
 
     elif Retail_Rate_Name_Input == "PG&E B-10 Base Case":
-        
+        # PROPOSED IN GRC PHASE II
         # Demand Charges - PG&E B-10, Single-Phase
         Summer_Peak_DC = 0
         Summer_Part_Peak_DC = 0
-        Summer_Noncoincident_DC = 13.42
+        Summer_Noncoincident_DC = 12.21
         Winter_Peak_DC = 0
         Winter_Part_Peak_DC = 0
-        Winter_Noncoincident_DC = 13.42
+        Winter_Noncoincident_DC = 12.21
         
         # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
-        Fixed_Per_Meter_Day_Charge = (4.59959)  # $ per meter per day
+        Fixed_Per_Meter_Day_Charge = (4.87705)  # $ per meter per day
         Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
         
         # Summer Months
@@ -570,7 +570,7 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
         Winter_Noncoincident_DC = 0
         
         # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
-        Fixed_Per_Meter_Day_Charge = (4.59959 + 7.96758)  # $ per meter per day
+        Fixed_Per_Meter_Day_Charge = (4.87705 + 7.96758)  # $ per meter per day
         Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
         
         # Summer Months
