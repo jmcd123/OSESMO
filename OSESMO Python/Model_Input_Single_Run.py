@@ -54,12 +54,12 @@ Customer_Class_Input = "Commercial and Industrial"
 # Load Profile Name
 # Name of the selected customer load profile.
 # Possible Options are: "ENERNOC Denver Shopping Center", "ENERNOC Bank Financial Services", "ENERNOC Commercial Real Estate", "ENERNOC Food Grocer"
-Load_Profile_Name_Input = "ENERNOC Food Grocer"
+Load_Profile_Name_Input = "ENERNOC Commercial Real Estate"
 
 # Retail Rate Name
 # Name of the selected retail rate.
-# Possible options are: "PG&E A-10 Base Case", "PG&E B-10 Base Case", "PG&E X-10 Alt1 Case", "PG&E X-10 Alt2 Case", "PG&E X-10 Alt3 Case", "PG&E X-10 Alt3 Case" OR PG&E E-19S (OLD)
-Retail_Rate_Name_Input = "PG&E B-10 Base Case"
+# Possible options are: "PG&E A-10 Base Case", "PG&E B-10 Base Case", "PG&E B-10 Alt1 Case", "PG&E B-10 Alt2 Case", "PG&E B-10 Alt3 Case", "PG&E B-10 Alt4 Case", "PG&E B-10 Alt5 Case" OR PG&E E-19S (OLD)
+Retail_Rate_Name_Input = "PG&E B-10 Alt5 Case"
 
 
 ## Model Input - Solar Data

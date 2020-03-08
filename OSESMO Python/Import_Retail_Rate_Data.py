@@ -115,6 +115,21 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
             Volumetric_Rate_Data = np.genfromtxt(
                 'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/B10_Alt4_Energy_Rates_Vectors.csv',
                 delimiter=',')
+
+    elif Retail_Rate_Name_Input == "PG&E B-10 Alt5 Case":
+            
+        Retail_Rate_Master_Index = "Jake_Alt5"
+        Retail_Rate_Effective_Date = "2019-01-01"
+
+        if delta_t == (5 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/B10_Alt5_Energy_Rates_Vectors.csv',
+                delimiter=',')
+
+        elif delta_t == (15 / 60):
+            Volumetric_Rate_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/B10_Alt5_Energy_Rates_Vectors.csv',
+                delimiter=',')           
     #End jake work
 
     elif Retail_Rate_Name_Input == "PG&E E-1 Tier 3":
@@ -556,8 +571,8 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
         Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
         
         # Summer Months
-        First_Summer_Month = 5 # May is the first summer month for this rate.
-        Last_Summer_Month = 10 # October is the last summer month for this rate.
+        First_Summer_Month = 6 # May is the first summer month for this rate.
+        Last_Summer_Month = 9 # October is the last summer month for this rate.
 
     elif Retail_Rate_Name_Input == "PG&E B-10 Alt1 Case":
         
@@ -574,8 +589,8 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
         Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
         
         # Summer Months
-        First_Summer_Month = 5 # May is the first summer month for this rate.
-        Last_Summer_Month = 10 # October is the last summer month for this rate.
+        First_Summer_Month = 6 # May is the first summer month for this rate.
+        Last_Summer_Month = 9 # October is the last summer month for this rate.
 
     elif Retail_Rate_Name_Input == "PG&E B-10 Alt2 Case":
         
@@ -588,12 +603,12 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
         Winter_Noncoincident_DC = 0
         
         # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
-        Fixed_Per_Meter_Day_Charge = (0.32854 + 0.20107)  # $ per meter per day
+        Fixed_Per_Meter_Day_Charge = 4.87705 # $ per meter per day
         Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
         
         # Summer Months
-        First_Summer_Month = 5 # May is the first summer month for this rate.
-        Last_Summer_Month = 10 # October is the last summer month for this rate.
+        First_Summer_Month = 6 # May is the first summer month for this rate.
+        Last_Summer_Month = 9 # October is the last summer month for this rate.
 
     elif Retail_Rate_Name_Input == "PG&E B-10 Alt3 Case":
         
@@ -606,12 +621,12 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
         Winter_Noncoincident_DC = 0
         
         # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
-        Fixed_Per_Meter_Day_Charge = (0.32854 + 0.20107)  # $ per meter per day
+        Fixed_Per_Meter_Day_Charge = 4.87705  # $ per meter per day
         Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
         
         # Summer Months
-        First_Summer_Month = 5 # May is the first summer month for this rate.
-        Last_Summer_Month = 10 # October is the last summer month for this rate.
+        First_Summer_Month = 6 # May is the first summer month for this rate.
+        Last_Summer_Month = 9 # October is the last summer month for this rate.
 
     elif Retail_Rate_Name_Input == "PG&E B-10 Alt4 Case":
         
@@ -624,13 +639,30 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
         Winter_Noncoincident_DC = 0
         
         # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
-        Fixed_Per_Meter_Day_Charge = (0.32854 + 0.20107)  # $ per meter per day
+        Fixed_Per_Meter_Day_Charge = 4.87705 # $ per meter per day
         Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
         
         # Summer Months
-        First_Summer_Month = 5 # May is the first summer month for this rate.
-        Last_Summer_Month = 10 # October is the last summer month for this rate.
+        First_Summer_Month = 6 # May is the first summer month for this rate.
+        Last_Summer_Month = 9 # October is the last summer month for this rate.
 
+    elif Retail_Rate_Name_Input == "PG&E B-10 Alt5 Case":
+        
+        # Demand Charges - PG&E A-6 (OLD), Single-Phase
+        Summer_Peak_DC = 0
+        Summer_Part_Peak_DC = 0
+        Summer_Noncoincident_DC = 0
+        Winter_Peak_DC = 0
+        Winter_Part_Peak_DC = 0
+        Winter_Noncoincident_DC = 0
+        
+        # Fixed Per-Meter-Day Charge - PG&E A-6 (OLD), Single-Phase
+        Fixed_Per_Meter_Day_Charge = 4.87705 # $ per meter per day
+        Fixed_Per_Meter_Month_Charge = 0 # $ per meter per month
+        
+        # Summer Months
+        First_Summer_Month = 6 # May is the first summer month for this rate.
+        Last_Summer_Month = 9 # October is the last summer month for this rate.
 
     #End jake work
 
@@ -1184,6 +1216,16 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
             Month_Data = np.genfromtxt(
                 'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/B10_Alt4_Cost_Vectors_Month.csv', delimiter=',')
 
+    elif Retail_Rate_Name_Input == "PG&E B-10 Alt5 Case":
+            
+        if delta_t == (5/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/5-Minute Data/Vector Format/B10_Alt5_Cost_Vectors_Month.csv', delimiter=',')
+
+        elif delta_t == (15/60):
+            Month_Data = np.genfromtxt(
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/B10_Alt5_Cost_Vectors_Month.csv', delimiter=',')
+
     #END JAKE WORK
 
     elif Retail_Rate_Name_Input == "PG&E A-6 (OLD)":
@@ -1518,6 +1560,13 @@ def Import_Retail_Rate_Data(Input_Output_Data_Directory_Location, OSESMO_Git_Rep
         Winter_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
 
     elif Retail_Rate_Name_Input == "PG&E B-10 Alt4 Case":
+            
+        Summer_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Summer_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+        Winter_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
+
+    elif Retail_Rate_Name_Input == "PG&E B-10 Alt5 Case":
             
         Summer_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
         Summer_Part_Peak_Binary_Data = np.zeros(np.shape(Month_Data))
