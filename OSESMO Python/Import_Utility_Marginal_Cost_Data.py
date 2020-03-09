@@ -24,6 +24,22 @@ def Import_Utility_Marginal_Cost_Data(Input_Output_Data_Directory_Location=None,
         Generation_Cost_Region = "NP15"
         Representative_Distribution_Cost_Profile = "Sonoma"
 
+
+    #Jake work start
+
+    elif Load_Profile_Name_Input == "ENERNOC Denver Shopping Center":
+        Generation_Cost_Region = "NP15"
+        Representative_Distribution_Cost_Profile = "Sonoma"
+    elif Load_Profile_Name_Input == "ENERNOC Bank Financial Services":
+        Generation_Cost_Region = "NP15"
+        Representative_Distribution_Cost_Profile = "Sonoma"
+    elif Load_Profile_Name_Input == "ENERNOC Food Grocer":
+        Generation_Cost_Region = "NP15"
+        Representative_Distribution_Cost_Profile = "Sonoma"
+    elif Load_Profile_Name_Input == "ENERNOC Commercial Real Estate":
+        Generation_Cost_Region = "NP15"
+        Representative_Distribution_Cost_Profile = "Sonoma"
+    #End Jake work
     elif Load_Profile_Name_Input == "WattTime GreenButton Residential Oakland":
         Generation_Cost_Region = "NP15"
         Representative_Distribution_Cost_Profile = "Mission"
@@ -124,18 +140,18 @@ def Import_Utility_Marginal_Cost_Data(Input_Output_Data_Directory_Location=None,
 
         if delta_t == (5 / 60):
             Generation_Cost_Data = np.genfromtxt(
-                'Utility Marginal Cost Data/Clean Utility Marginal Cost Data/5-Minute Data/Vector Format/NP15_5min_Generation_Cost_Vector.csv', delimiter=',')
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/NP15_15min_Generation_Cost_Vector.csv', delimiter=',')
 
         elif delta_t == (15 / 60):
             Generation_Cost_Data = np.genfromtxt(
-                'Utility Marginal Cost Data/Clean Utility Marginal Cost Data/15-Minute Data/Vector Format/NP15_15min_Generation_Cost_Vector.csv', delimiter=',')
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/NP15_15min_Generation_Cost_Vector.csv', delimiter=',')
 
 
     elif Generation_Cost_Region == "SP15":
 
         if delta_t == (5 / 60):
             Generation_Cost_Data = np.genfromtxt(
-                'Utility Marginal Cost Data/Clean Utility Marginal Cost Data/5-Minute Data/Vector Format/SP15_5min_Generation_Cost_Vector.csv', delimiter=',')
+                'Utility Marginal Cost Data/Clean Utility Marginal Cost Data/15-Minute Data/Vector Format/SP15_5min_Generation_Cost_Vector.csv', delimiter=',')
 
         elif delta_t == (15 / 60):
             Generation_Cost_Data = np.genfromtxt(
@@ -161,11 +177,11 @@ def Import_Utility_Marginal_Cost_Data(Input_Output_Data_Directory_Location=None,
 
         if delta_t == (5 / 60):
             Representative_Distribution_Cost_Data = np.genfromtxt(
-                'Utility Marginal Cost Data/Clean Utility Marginal Cost Data/5-Minute Data/Vector Format/Sonoma_5min_Distribution_Cost_Vector.csv', delimiter=',')
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/Sonoma_15min_Distribution_Cost_Vector.csv', delimiter=',')
 
         elif delta_t == (15 / 60):
             Representative_Distribution_Cost_Data = np.genfromtxt(
-                'Utility Marginal Cost Data/Clean Utility Marginal Cost Data/15-Minute Data/Vector Format/Sonoma_15min_Distribution_Cost_Vector.csv', delimiter=',')
+                'Rates/PG&E E-19S (OLD)/2017/15-Minute Data/Vector Format/Sonoma_15min_Distribution_Cost_Vector.csv', delimiter=',')
 
     # Return to OSESMO Git Repository Directory
     os.chdir(OSESMO_Git_Repo_Directory)

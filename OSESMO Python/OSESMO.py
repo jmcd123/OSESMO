@@ -280,10 +280,10 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
     # Import Utility Marginal Cost Data
     # Marginal Costs are mapped to load profile location
 
-    #from Import_Utility_Marginal_Cost_Data import Import_Utility_Marginal_Cost_Data
+    from Import_Utility_Marginal_Cost_Data import Import_Utility_Marginal_Cost_Data
 
-    #[Generation_Cost_Data, Representative_Distribution_Cost_Data] = Import_Utility_Marginal_Cost_Data(Input_Output_Data_Directory_Location,
-                                                             #OSESMO_Git_Repo_Directory, delta_t, Load_Profile_Name_Input)
+    [Generation_Cost_Data, Representative_Distribution_Cost_Data] = Import_Utility_Marginal_Cost_Data(Input_Output_Data_Directory_Location,
+                                                             OSESMO_Git_Repo_Directory, delta_t, Load_Profile_Name_Input)
 
 
     # Set Directory to Box Sync Folder
@@ -2465,61 +2465,61 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
 
     # Calculate Total Annual Grid Costs
 
-    #Annual_Grid_Cost_Baseline = np.dot(Generation_Cost_Data + Representative_Distribution_Cost_Data, Load_Profile_Data) * (1 / 1000) * delta_t
+    Annual_Grid_Cost_Baseline = np.dot(Generation_Cost_Data + Representative_Distribution_Cost_Data, Load_Profile_Data) * (1 / 1000) * delta_t
 
-    #if Model_Type_Input == "Solar Plus Storage":
-        #Annual_Grid_Cost_with_Solar_Only = np.dot(Generation_Cost_Data + Representative_Distribution_Cost_Data, Load_Profile_Data - Solar_PV_Profile_Data) * (1 / 1000) * delta_t
-    #else:
-        #Annual_Grid_Cost_with_Solar_Only = ""
+    if Model_Type_Input == "Solar Plus Storage":
+        Annual_Grid_Cost_with_Solar_Only = np.dot(Generation_Cost_Data + Representative_Distribution_Cost_Data, Load_Profile_Data - Solar_PV_Profile_Data) * (1 / 1000) * delta_t
+    else:
+        Annual_Grid_Cost_with_Solar_Only = ""
 
-    #Annual_Grid_Cost_with_Solar_and_Storage = np.dot(Generation_Cost_Data + Representative_Distribution_Cost_Data, Load_Profile_Data - Solar_PV_Profile_Data - \
-                                                     #P_ES_out.reshape((numtsteps_year,)) + P_ES_in.reshape((numtsteps_year,))) * (1 / 1000) * delta_t
+    Annual_Grid_Cost_with_Solar_and_Storage = np.dot(Generation_Cost_Data + Representative_Distribution_Cost_Data, Load_Profile_Data - Solar_PV_Profile_Data - \
+                                                     P_ES_out.reshape((numtsteps_year,)) + P_ES_in.reshape((numtsteps_year,))) * (1 / 1000) * delta_t
 
     # Calculate Monthly Grid Costs
 
-    #Grid_Cost_Timestep_Baseline = np.concatenate((np.multiply(Generation_Cost_Data, Load_Profile_Data).reshape((numtsteps_year,1)) * (1 / 1000) * delta_t, \
-                                   #np.multiply(Representative_Distribution_Cost_Data, Load_Profile_Data).reshape((numtsteps_year,1)) * (1 / 1000) * delta_t), axis = 1)
+    Grid_Cost_Timestep_Baseline = np.concatenate((np.multiply(Generation_Cost_Data, Load_Profile_Data).reshape((numtsteps_year,1)) * (1 / 1000) * delta_t, \
+                                   np.multiply(Representative_Distribution_Cost_Data, Load_Profile_Data).reshape((numtsteps_year,1)) * (1 / 1000) * delta_t), axis = 1)
 
-    #Grid_Cost_Month_Baseline = np.array([])
+    Grid_Cost_Month_Baseline = np.array([])
 
-    #for Month_Iter in range(1, 12 + 1):
-        #Grid_Cost_Single_Month_Baseline = np.sum(Grid_Cost_Timestep_Baseline[Month_Data == Month_Iter,:], axis = 0).reshape((1,2))
-        #Grid_Cost_Month_Baseline = np.concatenate((Grid_Cost_Month_Baseline, Grid_Cost_Single_Month_Baseline), axis = 0) if Grid_Cost_Month_Baseline.size != 0 else Grid_Cost_Single_Month_Baseline
-
-
-    #Grid_Cost_Timestep_with_Solar_Only = np.concatenate((np.multiply(Generation_Cost_Data, (Load_Profile_Data - Solar_PV_Profile_Data)).reshape((numtsteps_year,1)) * (1 / 1000) * delta_t, \
-                                                         #np.multiply(Representative_Distribution_Cost_Data, (Load_Profile_Data - Solar_PV_Profile_Data)).reshape((numtsteps_year,1)) * (1 / 1000) * delta_t), axis = 1)
-
-    #Grid_Cost_Month_with_Solar_Only = np.array([])
-
-    #for Month_Iter in range(1, 12 + 1):
-        #Grid_Cost_Single_Month_with_Solar_Only = np.sum(Grid_Cost_Timestep_with_Solar_Only[Month_Data == Month_Iter,:], axis = 0).reshape((1,2))
-        #Grid_Cost_Month_with_Solar_Only = np.concatenate((Grid_Cost_Month_with_Solar_Only, Grid_Cost_Single_Month_with_Solar_Only), axis = 0) if Grid_Cost_Month_with_Solar_Only.size != 0 else Grid_Cost_Single_Month_with_Solar_Only
+    for Month_Iter in range(1, 12 + 1):
+        Grid_Cost_Single_Month_Baseline = np.sum(Grid_Cost_Timestep_Baseline[Month_Data == Month_Iter,:], axis = 0).reshape((1,2))
+        Grid_Cost_Month_Baseline = np.concatenate((Grid_Cost_Month_Baseline, Grid_Cost_Single_Month_Baseline), axis = 0) if Grid_Cost_Month_Baseline.size != 0 else Grid_Cost_Single_Month_Baseline
 
 
-    #Grid_Cost_Timestep_with_Solar_and_Storage = np.concatenate((np.multiply(Generation_Cost_Data,
-                                                                                #(Load_Profile_Data - Solar_PV_Profile_Data - P_ES_out.reshape((numtsteps_year,)) + P_ES_in.reshape((numtsteps_year,)))).reshape((numtsteps_year,1)) *
-                                                                    #(1 / 1000) * delta_t, \
-                                                         #np.multiply(Representative_Distribution_Cost_Data,
-                                                                     #(Load_Profile_Data - Solar_PV_Profile_Data - P_ES_out.reshape((numtsteps_year,)) + P_ES_in.reshape((numtsteps_year,)))).reshape((numtsteps_year,1)) *
-                                                                    #(1 / 1000) * delta_t), axis = 1)
+    Grid_Cost_Timestep_with_Solar_Only = np.concatenate((np.multiply(Generation_Cost_Data, (Load_Profile_Data - Solar_PV_Profile_Data)).reshape((numtsteps_year,1)) * (1 / 1000) * delta_t, \
+                                                         np.multiply(Representative_Distribution_Cost_Data, (Load_Profile_Data - Solar_PV_Profile_Data)).reshape((numtsteps_year,1)) * (1 / 1000) * delta_t), axis = 1)
 
-    #Grid_Cost_Month_with_Solar_and_Storage = np.array([])
+    Grid_Cost_Month_with_Solar_Only = np.array([])
 
-    #for Month_Iter in range(1, 12 + 1):
-        #Grid_Cost_Single_Month_with_Solar_and_Storage = np.sum(Grid_Cost_Timestep_with_Solar_and_Storage[Month_Data == Month_Iter,:], axis = 0).reshape((1,2))
+    for Month_Iter in range(1, 12 + 1):
+        Grid_Cost_Single_Month_with_Solar_Only = np.sum(Grid_Cost_Timestep_with_Solar_Only[Month_Data == Month_Iter,:], axis = 0).reshape((1,2))
+        Grid_Cost_Month_with_Solar_Only = np.concatenate((Grid_Cost_Month_with_Solar_Only, Grid_Cost_Single_Month_with_Solar_Only), axis = 0) if Grid_Cost_Month_with_Solar_Only.size != 0 else Grid_Cost_Single_Month_with_Solar_Only
 
-        #Grid_Cost_Month_with_Solar_and_Storage = np.concatenate((Grid_Cost_Month_with_Solar_and_Storage, Grid_Cost_Single_Month_with_Solar_and_Storage), axis = 0) if \
-            #Grid_Cost_Month_with_Solar_and_Storage.size != 0 else Grid_Cost_Single_Month_with_Solar_and_Storage
+
+    Grid_Cost_Timestep_with_Solar_and_Storage = np.concatenate((np.multiply(Generation_Cost_Data,
+                                                                                (Load_Profile_Data - Solar_PV_Profile_Data - P_ES_out.reshape((numtsteps_year,)) + P_ES_in.reshape((numtsteps_year,)))).reshape((numtsteps_year,1)) *
+                                                                    (1 / 1000) * delta_t, \
+                                                         np.multiply(Representative_Distribution_Cost_Data,
+                                                                     (Load_Profile_Data - Solar_PV_Profile_Data - P_ES_out.reshape((numtsteps_year,)) + P_ES_in.reshape((numtsteps_year,)))).reshape((numtsteps_year,1)) *
+                                                                    (1 / 1000) * delta_t), axis = 1)
+
+    Grid_Cost_Month_with_Solar_and_Storage = np.array([])
+
+    for Month_Iter in range(1, 12 + 1):
+        Grid_Cost_Single_Month_with_Solar_and_Storage = np.sum(Grid_Cost_Timestep_with_Solar_and_Storage[Month_Data == Month_Iter,:], axis = 0).reshape((1,2))
+
+        Grid_Cost_Month_with_Solar_and_Storage = np.concatenate((Grid_Cost_Month_with_Solar_and_Storage, Grid_Cost_Single_Month_with_Solar_and_Storage), axis = 0) if \
+            Grid_Cost_Month_with_Solar_and_Storage.size != 0 else Grid_Cost_Single_Month_with_Solar_and_Storage
 
 
     # Calculate Monthly Grid Cost Savings from Storage
 
-    #if Model_Type_Input == "Storage Only":
-        #Grid_Cost_Savings_Month_from_Storage = Grid_Cost_Month_Baseline - Grid_Cost_Month_with_Solar_and_Storage
+    if Model_Type_Input == "Storage Only":
+        Grid_Cost_Savings_Month_from_Storage = Grid_Cost_Month_Baseline - Grid_Cost_Month_with_Solar_and_Storage
 
-    #elif Model_Type_Input == "Solar Plus Storage":
-        #Grid_Cost_Savings_Month_from_Storage = Grid_Cost_Month_with_Solar_Only - Grid_Cost_Month_with_Solar_and_Storage
+    elif Model_Type_Input == "Solar Plus Storage":
+        Grid_Cost_Savings_Month_from_Storage = Grid_Cost_Month_with_Solar_Only - Grid_Cost_Month_with_Solar_and_Storage
 
 
     # Report Grid Cost Savings from Solar
@@ -2530,22 +2530,22 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
 
     # Report Grid Cost Impact from Storage
 
-    #if Model_Type_Input == "Storage Only":
-        #if Annual_Grid_Cost_Baseline - Annual_Grid_Cost_with_Solar_and_Storage < 0:
-            #print('Installing energy storage INCREASES estimated utility grid costs (not including transmission costs, and using representative distribution costs) by ${0} per year.'.format(
-                #-round(Annual_Grid_Cost_Baseline - Annual_Grid_Cost_with_Solar_and_Storage, 2)))
-        #else:
-            #print('Installing energy storage DECREASES estimated utility grid costs (not including transmission costs, and using representative distribution costs) by ${0} per year.'.format(
-                #round(Annual_Grid_Cost_Baseline - Annual_Grid_Cost_with_Solar_and_Storage, 2)))
+    if Model_Type_Input == "Storage Only":
+        if Annual_Grid_Cost_Baseline - Annual_Grid_Cost_with_Solar_and_Storage < 0:
+            print('Installing energy storage INCREASES estimated utility grid costs (not including transmission costs, and using representative distribution costs) by ${0} per year.'.format(
+                -round(Annual_Grid_Cost_Baseline - Annual_Grid_Cost_with_Solar_and_Storage, 2)))
+        else:
+            print('Installing energy storage DECREASES estimated utility grid costs (not including transmission costs, and using representative distribution costs) by ${0} per year.'.format(
+                round(Annual_Grid_Cost_Baseline - Annual_Grid_Cost_with_Solar_and_Storage, 2)))
 
-    #elif Model_Type_Input == "Solar Plus Storage":
+    elif Model_Type_Input == "Solar Plus Storage":
 
-        #if Annual_Grid_Cost_with_Solar_Only - Annual_Grid_Cost_with_Solar_and_Storage < 0:
-           # print('Installing energy storage INCREASES estimated utility grid costs (not including transmission costs, and using representative distribution costs) by ${0} per year.'.format(
-                #-round(Annual_Grid_Cost_with_Solar_Only - Annual_Grid_Cost_with_Solar_and_Storage, 2)))
-        #else:
-            #print('Installing energy storage DECREASES estimated utility grid costs (not including transmission costs, and using representative distribution costs) by ${0} per year.'.format(
-                #round(Annual_Grid_Cost_with_Solar_Only - Annual_Grid_Cost_with_Solar_and_Storage, 2)))
+        if Annual_Grid_Cost_with_Solar_Only - Annual_Grid_Cost_with_Solar_and_Storage < 0:
+            print('Installing energy storage INCREASES estimated utility grid costs (not including transmission costs, and using representative distribution costs) by ${0} per year.'.format(
+                -round(Annual_Grid_Cost_with_Solar_Only - Annual_Grid_Cost_with_Solar_and_Storage, 2)))
+        else:
+            print('Installing energy storage DECREASES estimated utility grid costs (not including transmission costs, and using representative distribution costs) by ${0} per year.'.format(
+                round(Annual_Grid_Cost_with_Solar_Only - Annual_Grid_Cost_with_Solar_and_Storage, 2)))
 
 
     ## Report Emissions Impact
@@ -2609,22 +2609,22 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
 
     # Plot Grid Cost Time-Series
 
-    #if Show_Plots == 1 or Export_Plots == 1:
-        #fig, ax = plt.subplots()
-        #ax.plot(t, Generation_Cost_Data * (1 / 1000), 'C2-', label='Grid Generation Cost')
-        #ax.plot(t, Representative_Distribution_Cost_Data * (1 / 1000), 'C1-', label='Representative Distribution Cost')
-        #ax.set_xlabel('Date & Time')
-        #ax.xaxis.set_major_formatter(matplotlib.dates.DateFormatter('%Y-%m-%d %H:%M'))
-        #ax.set_ylabel('Grid Costs ($/kWh)')
-        #plt.ylim(bottom=-np.max((np.max(Generation_Cost_Data), np.max(Representative_Distribution_Cost_Data))) * (
-                    #1 / 1000) * 0.1,
-                 #top=np.max((np.max(Generation_Cost_Data), np.max(Representative_Distribution_Cost_Data))) * (
-                             #1 / 1000) * 1.1)  # Make ylim 10% larger than grid cost range.
-        #ax.set_title('Grid Costs (Generation & Distribution)')
-        #ax.legend()
-        #fig.autofmt_xdate()
-        #fig.tight_layout()
-        #plt.savefig(os.path.join(Output_Directory_Filepath, 'Grid Costs Time Series Plot.png'))
+    if Show_Plots == 1 or Export_Plots == 1:
+        fig, ax = plt.subplots()
+        ax.plot(t, Generation_Cost_Data * (1 / 1000), 'C2-', label='Grid Generation Cost')
+        ax.plot(t, Representative_Distribution_Cost_Data * (1 / 1000), 'C1-', label='Representative Distribution Cost')
+        ax.set_xlabel('Date & Time')
+        ax.xaxis.set_major_formatter(matplotlib.dates.DateFormatter('%Y-%m-%d %H:%M'))
+        ax.set_ylabel('Grid Costs ($/kWh)')
+        plt.ylim(bottom=-np.max((np.max(Generation_Cost_Data), np.max(Representative_Distribution_Cost_Data))) * (
+                    1 / 1000) * 0.1,
+                 top=np.max((np.max(Generation_Cost_Data), np.max(Representative_Distribution_Cost_Data))) * (
+                             1 / 1000) * 1.1)  # Make ylim 10% larger than grid cost range.
+        ax.set_title('Grid Costs (Generation & Distribution)')
+        ax.legend()
+        fig.autofmt_xdate()
+        fig.tight_layout()
+        plt.savefig(os.path.join(Output_Directory_Filepath, 'Grid Costs Time Series Plot.png'))
         #plt.show()
 
 
@@ -2634,57 +2634,57 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
 
     # Calculate Maximum and Minimum Monthly Grid Costs - to set y-axis for all plots
 
-    #Maximum_Monthly_Grid_Cost_Baseline = np.max(np.sum(Grid_Cost_Month_Baseline, axis = 1))
-    #Minimum_Monthly_Grid_Cost_Baseline = np.min(np.sum(Grid_Cost_Month_Baseline, axis = 1))
+    Maximum_Monthly_Grid_Cost_Baseline = np.max(np.sum(Grid_Cost_Month_Baseline, axis = 1))
+    Minimum_Monthly_Grid_Cost_Baseline = np.min(np.sum(Grid_Cost_Month_Baseline, axis = 1))
 
-    #Grid_Cost_Month_with_Solar_Only_Neg = Grid_Cost_Month_with_Solar_Only.copy()
-    #Grid_Cost_Month_with_Solar_Only_Neg[Grid_Cost_Month_with_Solar_Only_Neg > 0] = 0
-    #Grid_Cost_Month_with_Solar_Only_Pos = Grid_Cost_Month_with_Solar_Only.copy()
-    #Grid_Cost_Month_with_Solar_Only_Pos[Grid_Cost_Month_with_Solar_Only_Pos < 0] = 0
+    Grid_Cost_Month_with_Solar_Only_Neg = Grid_Cost_Month_with_Solar_Only.copy()
+    Grid_Cost_Month_with_Solar_Only_Neg[Grid_Cost_Month_with_Solar_Only_Neg > 0] = 0
+    Grid_Cost_Month_with_Solar_Only_Pos = Grid_Cost_Month_with_Solar_Only.copy()
+    Grid_Cost_Month_with_Solar_Only_Pos[Grid_Cost_Month_with_Solar_Only_Pos < 0] = 0
 
-    #Maximum_Monthly_Grid_Cost_with_Solar_Only = np.max(np.sum(Grid_Cost_Month_with_Solar_Only_Pos, axis = 1))
-    #Minimum_Monthly_Grid_Cost_with_Solar_Only = np.min(np.sum(Grid_Cost_Month_with_Solar_Only_Neg, axis = 1))
+    Maximum_Monthly_Grid_Cost_with_Solar_Only = np.max(np.sum(Grid_Cost_Month_with_Solar_Only_Pos, axis = 1))
+    Minimum_Monthly_Grid_Cost_with_Solar_Only = np.min(np.sum(Grid_Cost_Month_with_Solar_Only_Neg, axis = 1))
 
-    #Grid_Cost_Month_with_Solar_and_Storage_Neg = Grid_Cost_Month_with_Solar_and_Storage.copy()
-    #Grid_Cost_Month_with_Solar_and_Storage_Neg[Grid_Cost_Month_with_Solar_and_Storage_Neg > 0] = 0
-    #Grid_Cost_Month_with_Solar_and_Storage_Pos = Grid_Cost_Month_with_Solar_and_Storage.copy()
-    #Grid_Cost_Month_with_Solar_and_Storage_Pos[Grid_Cost_Month_with_Solar_and_Storage_Pos < 0] = 0
+    Grid_Cost_Month_with_Solar_and_Storage_Neg = Grid_Cost_Month_with_Solar_and_Storage.copy()
+    Grid_Cost_Month_with_Solar_and_Storage_Neg[Grid_Cost_Month_with_Solar_and_Storage_Neg > 0] = 0
+    Grid_Cost_Month_with_Solar_and_Storage_Pos = Grid_Cost_Month_with_Solar_and_Storage.copy()
+    Grid_Cost_Month_with_Solar_and_Storage_Pos[Grid_Cost_Month_with_Solar_and_Storage_Pos < 0] = 0
 
-    #Maximum_Monthly_Grid_Cost_with_Solar_and_Storage = np.max(np.sum(Grid_Cost_Month_with_Solar_and_Storage_Pos, axis = 1))
-    #Minimum_Monthly_Grid_Cost_with_Solar_and_Storage = np.min(np.sum(Grid_Cost_Month_with_Solar_and_Storage_Neg, axis = 1))
+    Maximum_Monthly_Grid_Cost_with_Solar_and_Storage = np.max(np.sum(Grid_Cost_Month_with_Solar_and_Storage_Pos, axis = 1))
+    Minimum_Monthly_Grid_Cost_with_Solar_and_Storage = np.min(np.sum(Grid_Cost_Month_with_Solar_and_Storage_Neg, axis = 1))
 
-    #Maximum_Monthly_Grid_Cost = np.max((np.max(Maximum_Monthly_Grid_Cost_Baseline), np.max(Maximum_Monthly_Grid_Cost_with_Solar_Only), np.max(Maximum_Monthly_Grid_Cost_with_Solar_and_Storage)))
+    Maximum_Monthly_Grid_Cost = np.max((np.max(Maximum_Monthly_Grid_Cost_Baseline), np.max(Maximum_Monthly_Grid_Cost_with_Solar_Only), np.max(Maximum_Monthly_Grid_Cost_with_Solar_and_Storage)))
 
-    #Minimum_Monthly_Grid_Cost = np.min((np.min(Minimum_Monthly_Grid_Cost_Baseline), np.min(Minimum_Monthly_Grid_Cost_with_Solar_Only), np.min(Minimum_Monthly_Grid_Cost_with_Solar_and_Storage)))
+    Minimum_Monthly_Grid_Cost = np.min((np.min(Minimum_Monthly_Grid_Cost_Baseline), np.min(Minimum_Monthly_Grid_Cost_with_Solar_Only), np.min(Minimum_Monthly_Grid_Cost_with_Solar_and_Storage)))
 
-    #Max_Monthly_Grid_Cost_ylim = Maximum_Monthly_Grid_Cost * 1.1  # Make upper ylim 10% larger than largest monthly bill.
+    Max_Monthly_Grid_Cost_ylim = Maximum_Monthly_Grid_Cost * 1.1  # Make upper ylim 10% larger than largest monthly bill.
 
-    #if Minimum_Monthly_Grid_Cost >= 0:
-        #Min_Monthly_Grid_Cost_ylim = 0  # Make lower ylim equal to 0 if the lowest monthly bill is greater than zero.
-    #elif Minimum_Monthly_Grid_Cost < 0:
-        #Min_Monthly_Grid_Cost_ylim = Minimum_Monthly_Grid_Cost * 1.1  # Make lower ylim 10% smaller than the smallest monthly bill if less than zero.
+    if Minimum_Monthly_Grid_Cost >= 0:
+        Min_Monthly_Grid_Cost_ylim = 0  # Make lower ylim equal to 0 if the lowest monthly bill is greater than zero.
+    elif Minimum_Monthly_Grid_Cost < 0:
+        Min_Monthly_Grid_Cost_ylim = Minimum_Monthly_Grid_Cost * 1.1  # Make lower ylim 10% smaller than the smallest monthly bill if less than zero.
 
 
     # Plot Baseline Monthly Grid Costs
 
-    #if Show_Plots == 1 or Export_Plots == 1:
-        #series_labels = ['Generation Cost', 'Representative Distribution Cost']
+    if Show_Plots == 1 or Export_Plots == 1:
+        series_labels = ['Generation Cost', 'Representative Distribution Cost']
 
-        #category_labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+        category_labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
 
-        #plt.figure()
+        plt.figure()
 
-        #stacked_bar(np.transpose(Grid_Cost_Month_Baseline),
-            #series_labels,
-            #category_labels=category_labels,
-            #show_values=False,
-            #value_format="{}",
-            #y_label="Grid Cost ($/month)")
+        stacked_bar(np.transpose(Grid_Cost_Month_Baseline),
+            series_labels,
+            category_labels=category_labels,
+            show_values=False,
+            value_format="{}",
+            y_label="Grid Cost ($/month)")
 
-        #plt.xlabel('Month')
-        #plt.ylim(bottom=Min_Monthly_Grid_Cost_ylim, top=Max_Monthly_Grid_Cost_ylim)
-        #plt.title('Monthly Baseline Grid Costs')
-        #plt.savefig(os.path.join(Output_Directory_Filepath, 'Monthly Grid Costs Baseline Plot.png'))
+        plt.xlabel('Month')
+        plt.ylim(bottom=Min_Monthly_Grid_Cost_ylim, top=Max_Monthly_Grid_Cost_ylim)
+        plt.title('Monthly Baseline Grid Costs')
+        plt.savefig(os.path.join(Output_Directory_Filepath, 'Monthly Grid Costs Baseline Plot.png'))
         #plt.show()
 
     #if Export_Plots == 1:
@@ -2750,43 +2750,43 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
 
     # Plot Monthly Grid Cost Savings from Storage
 
-    #if Show_Plots == 1 or Export_Plots == 1:
+    if Show_Plots == 1 or Export_Plots == 1:
         # Separate negative and positive values for stacked bar chart
-     #   Grid_Cost_Savings_Month_from_Storage_Neg = Grid_Cost_Savings_Month_from_Storage.copy()
-      #  Grid_Cost_Savings_Month_from_Storage_Neg[Grid_Cost_Savings_Month_from_Storage_Neg > 0] = 0
+        Grid_Cost_Savings_Month_from_Storage_Neg = Grid_Cost_Savings_Month_from_Storage.copy()
+        Grid_Cost_Savings_Month_from_Storage_Neg[Grid_Cost_Savings_Month_from_Storage_Neg > 0] = 0
 
-       # Grid_Cost_Savings_Month_from_Storage_Pos = Grid_Cost_Savings_Month_from_Storage.copy()
-        #Grid_Cost_Savings_Month_from_Storage_Pos[Grid_Cost_Savings_Month_from_Storage_Pos < 0] = 0
+        Grid_Cost_Savings_Month_from_Storage_Pos = Grid_Cost_Savings_Month_from_Storage.copy()
+        Grid_Cost_Savings_Month_from_Storage_Pos[Grid_Cost_Savings_Month_from_Storage_Pos < 0] = 0
 
         # Calculate Maximum and Minimum Monthly Grid Savings - to set y-axis for plot
 
-        #Maximum_Grid_Cost_Savings_Month_from_Storage = np.max(np.sum(Grid_Cost_Savings_Month_from_Storage_Pos, axis = 1))
-        #Minimum_Grid_Cost_Savings_Month_from_Storage = np.min(np.sum(Grid_Cost_Savings_Month_from_Storage_Neg, axis = 1))
+        Maximum_Grid_Cost_Savings_Month_from_Storage = np.max(np.sum(Grid_Cost_Savings_Month_from_Storage_Pos, axis = 1))
+        Minimum_Grid_Cost_Savings_Month_from_Storage = np.min(np.sum(Grid_Cost_Savings_Month_from_Storage_Neg, axis = 1))
 
-        #Max_Grid_Cost_Savings_from_Storage_ylim = Maximum_Grid_Cost_Savings_Month_from_Storage * 1.1  # Make upper ylim 10% larger than largest monthly savings.
+        Max_Grid_Cost_Savings_from_Storage_ylim = Maximum_Grid_Cost_Savings_Month_from_Storage * 1.1  # Make upper ylim 10% larger than largest monthly savings.
 
-        #if Minimum_Grid_Cost_Savings_Month_from_Storage >= 0:
-         #   Min_Grid_Cost_Savings_from_Storage_ylim = 0  # Make lower ylim equal to 0 if the lowest monthly grid savings.
-        #elif Minimum_Grid_Cost_Savings_Month_from_Storage < 0:
-         #   Min_Grid_Cost_Savings_from_Storage_ylim = Minimum_Grid_Cost_Savings_Month_from_Storage * 1.1 - Max_Grid_Cost_Savings_from_Storage_ylim * 0.1  # Make lower ylim 10% smaller than the smallest monthly bill if less than zero.
+        if Minimum_Grid_Cost_Savings_Month_from_Storage >= 0:
+            Min_Grid_Cost_Savings_from_Storage_ylim = 0  # Make lower ylim equal to 0 if the lowest monthly grid savings.
+        elif Minimum_Grid_Cost_Savings_Month_from_Storage < 0:
+            Min_Grid_Cost_Savings_from_Storage_ylim = Minimum_Grid_Cost_Savings_Month_from_Storage * 1.1 - Max_Grid_Cost_Savings_from_Storage_ylim * 0.1  # Make lower ylim 10% smaller than the smallest monthly bill if less than zero.
 
-        #series_labels = ['Generation Cost', 'Representative Distribution Cost']
+        series_labels = ['Generation Cost', 'Representative Distribution Cost']
 
-        #category_labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+        category_labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
 
-        #plt.figure()
+        plt.figure()
 
-        #stacked_bar(np.transpose(Grid_Cost_Savings_Month_from_Storage),
-         #           series_labels,
-          #          category_labels=category_labels,
-           #         show_values=False,
-            #        value_format="{}",
-             #       y_label="Grid Cost Savings ($/month)")
+        stacked_bar(np.transpose(Grid_Cost_Savings_Month_from_Storage),
+                    series_labels,
+                    category_labels=category_labels,
+                    show_values=False,
+                    value_format="{}",
+                    y_label="Grid Cost Savings ($/month)")
 
-        #plt.xlabel('Month')
-        #plt.ylim(bottom=Min_Grid_Cost_Savings_from_Storage_ylim, top=Max_Grid_Cost_Savings_from_Storage_ylim)
-        #plt.title('Monthly Grid Cost Savings from Storage')
-        #plt.savefig(os.path.join(Output_Directory_Filepath, 'Monthly Grid Cost Savings from Storage Plot.png'))
+        plt.xlabel('Month')
+        plt.ylim(bottom=Min_Grid_Cost_Savings_from_Storage_ylim, top=Max_Grid_Cost_Savings_from_Storage_ylim)
+        plt.title('Monthly Grid Cost Savings from Storage')
+        plt.savefig(os.path.join(Output_Directory_Filepath, 'Monthly Grid Cost Savings from Storage Plot.png'))
         #plt.show()
 
         #if Export_Plots == 1:
@@ -2856,7 +2856,7 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
                                          Carbon_Adder_Incentive_Value_Input, Other_Incentives_or_Penalities, Emissions_Forecast_Signal_Input, \
                                          Annual_GHG_Emissions_Baseline, Annual_GHG_Emissions_with_Solar_Only, Annual_GHG_Emissions_with_Solar_and_Storage, \
                                          Annual_Customer_Bill_Baseline, Annual_Customer_Bill_with_Solar_Only, Annual_Customer_Bill_with_Solar_and_Storage, \
-                                         #Annual_Grid_Cost_Baseline, Annual_Grid_Cost_with_Solar_Only, Annual_Grid_Cost_with_Solar_and_Storage, \
+                                         Annual_Grid_Cost_Baseline, Annual_Grid_Cost_with_Solar_Only, Annual_Grid_Cost_with_Solar_and_Storage, \
                                          Annual_Equivalent_Storage_Cycles, Annual_RTE, Operational_Capacity_Factor, \
                                          Annual_Demand_Charge_Cost_Baseline, Annual_Demand_Charge_Cost_with_Solar_Only, Annual_Demand_Charge_Cost_with_Solar_and_Storage, \
                                          Annual_Energy_Charge_Cost_Baseline, Annual_Energy_Charge_Cost_with_Solar_Only, Annual_Energy_Charge_Cost_with_Solar_and_Storage, \
@@ -2864,7 +2864,7 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
                                          Annual_Total_Energy_Consumption_Baseline, Annual_Total_Energy_Consumption_with_Solar_Only, Annual_Total_Energy_Consumption_with_Solar_and_Storage, Storage_Simple_Payback, \
                                          Output_Summary_Filename, Output_Description_Filename, Output_Visualizations_Filename#, \
                                          #EV_Use, EV_Charge, EV_Gas_Savings, EV_GHG_Savings
-                                         ]).reshape((1, 52))
+                                         ]).reshape((1, 55))
 
     Model_Inputs_and_Outputs = pd.DataFrame(Model_Inputs_and_Outputs, columns = ["Modeling_Team_Input", "Model_Run_Number_Input", "Model_Run_Date_Time", "Model_Type_Input", "Model_Timestep_Resolution", \
                                          "Customer_Class_Input", "Load_Profile_Master_Index", "Load_Profile_Name_Input", \
@@ -2876,7 +2876,7 @@ def OSESMO(Modeling_Team_Input=None, Model_Run_Number_Input=None, Model_Type_Inp
                                          "Carbon_Adder_Incentive_Value_Input", "Other_Incentives_or_Penalities", "Emissions_Forecast_Signal_Input", \
                                          "Annual_GHG_Emissions_Baseline", "Annual_GHG_Emissions_with_Solar_Only", "Annual_GHG_Emissions_with_Solar_and_Storage", \
                                          "Annual_Customer_Bill_Baseline", "Annual_Customer_Bill_with_Solar_Only", "Annual_Customer_Bill_with_Solar_and_Storage", \
-                                         #"Annual_Grid_Cost_Baseline", "Annual_Grid_Cost_with_Solar_Only", "Annual_Grid_Cost_with_Solar_and_Storage", \
+                                         "Annual_Grid_Cost_Baseline", "Annual_Grid_Cost_with_Solar_Only", "Annual_Grid_Cost_with_Solar_and_Storage", \
                                          "Annual_Equivalent_Storage_Cycles", "Annual_RTE", "Operational_Capacity_Factor", \
                                          "Annual_Demand_Charge_Cost_Baseline", "Annual_Demand_Charge_Cost_with_Solar_Only", "Annual_Demand_Charge_Cost_with_Solar_and_Storage", \
                                          "Annual_Energy_Charge_Cost_Baseline", "Annual_Energy_Charge_Cost_with_Solar_Only", "Annual_Energy_Charge_Cost_with_Solar_and_Storage", \
